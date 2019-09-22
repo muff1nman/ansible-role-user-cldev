@@ -1,0 +1,19 @@
+---
+- name: Ensure local source directory
+  file:
+    path: "{{ sourcedir }}/github/muff1nman"
+    state: directory
+    recurse: yes
+- name: Checkout github_ssh_manage
+  git: 
+    repo: https://github.com/muff1nman/github_ssh_manage.git
+    dest: "{{ sourcedir }}/github/muff1nman/github_ssh_manage"
+- name: Install github_api gem
+  gem:
+    name: github_api
+- name: Add github ssh keys
+  shell: "GITHUB_AUTH={{ github_cred }} {{ sourcedir }}/github/muff1nman/github_ssh_manage/sync.rb"
+  when: "github_key is undefined or github_key != 'no'"
+  register: github_keys
+  changed_when: "github_keys.rc == 0"
+  failed_when: "github_keys.rc != 20 and github_keys.rc != 0"

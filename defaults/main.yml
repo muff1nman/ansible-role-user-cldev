@@ -1,0 +1,2 @@
+---
+sourcedir: "{{ desktop_user_vars.dir }}/Source"
