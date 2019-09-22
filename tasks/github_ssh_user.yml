@@ -13,7 +13,7 @@
     name: github_api
 - name: Add github ssh keys
   shell: "GITHUB_AUTH={{ github_cred }} {{ sourcedir }}/github/muff1nman/github_ssh_manage/sync.rb"
-  when: "github_key is undefined or github_key != 'no'"
+  when: "github_key is undefined or github_key"
   register: github_keys
   changed_when: "github_keys.rc == 0"
   failed_when: "github_keys.rc != 20 and github_keys.rc != 0"
