@@ -8,6 +8,7 @@
     dest: "{{ desktop_user_vars.dir }}/.password-store"
     repo: "{{ pass_git_uri }}"
     recursive: no
+    update: no
   when:
     - skip_local_server is not defined
     - limited_internet is not defined
