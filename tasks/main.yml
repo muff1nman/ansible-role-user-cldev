@@ -19,3 +19,4 @@
     GOPATH: "{{ desktop_user_vars.dir }}/Source/go"
   with_items:
   - github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
+  - golang.org/x/tools/cmd/goimports
