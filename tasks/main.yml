@@ -20,3 +20,4 @@
   with_items:
   - github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
   - golang.org/x/tools/cmd/goimports
+  - github.com/bazelbuild/buildtools/buildifier
