@@ -1,0 +1,10 @@
+- name: Ensure config directory
+  file:
+    path: "{{ desktop_user_vars.dir }}/.config/amtool"
+    state: directory
+    recurse: yes
+- name: Configure amtool
+  copy:
+    content: "{{ amtool_config | to_nice_yaml(indent=2) }}"
+    dest: "{{ desktop_user_vars.dir }}/.config/amtool/config.yml"
+    mode: 0600
