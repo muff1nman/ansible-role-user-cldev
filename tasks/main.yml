@@ -23,5 +23,7 @@
   - github.com/bazelbuild/buildtools/buildifier
   - github.com/prometheus/alertmanager/cmd/amtool
   - github.com/bazelbuild/bazelisk
+  - github.com/homeport/dyff/cmd/dyff
+  - github.com/mikefarah/yq/v4
 - include_tasks: amtool_config.yml
   when: amtool_config is defined
