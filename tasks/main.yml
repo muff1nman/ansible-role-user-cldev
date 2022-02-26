@@ -1,6 +1,7 @@
 ---
 # Needs to be more smart about which ssh key to use. currently hardcoded to use id_rsa
-- include_tasks: github_ssh_user.yml
+# Also currently broken
+# - include_tasks: github_ssh_user.yml
 - name: Checkout password-store
   git: 
     accept_hostkey: yes
