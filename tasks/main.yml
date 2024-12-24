@@ -15,16 +15,16 @@
     - limited_internet is not defined
 - name: install go modules
   command: >
-    go get {{ item }}
+    go install {{ item }}
   environment:
     GOPATH: "{{ desktop_user_vars.dir }}/Source/go"
   with_items:
-  - github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
-  - golang.org/x/tools/cmd/goimports
-  - github.com/bazelbuild/buildtools/buildifier
-  - github.com/prometheus/alertmanager/cmd/amtool
-  - github.com/bazelbuild/bazelisk
-  - github.com/homeport/dyff/cmd/dyff
-  - github.com/mikefarah/yq/v4
+  - github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@latest
+  - golang.org/x/tools/cmd/goimports@latest
+  - github.com/bazelbuild/buildtools/buildifier@latest
+  - github.com/prometheus/alertmanager/cmd/amtool@latest
+  - github.com/bazelbuild/bazelisk@latest
+  - github.com/homeport/dyff/cmd/dyff@latest
+  - github.com/mikefarah/yq/v4@latest
 - include_tasks: amtool_config.yml
   when: amtool_config is defined
