@@ -1,2 +1,12 @@
 ---
 sourcedir: "{{ desktop_user_vars.dir }}/Source"
+go_env: ""
+go_default_binaries:
+  - github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@latest
+  - golang.org/x/tools/cmd/goimports@latest
+  - github.com/bazelbuild/buildtools/buildifier@latest
+  - github.com/prometheus/alertmanager/cmd/amtool@latest
+  - github.com/bazelbuild/bazelisk@latest
+  - github.com/homeport/dyff/cmd/dyff@latest
+  - github.com/mikefarah/yq/v4@latest
+go_binaries: []

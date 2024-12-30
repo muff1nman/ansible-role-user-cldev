@@ -13,18 +13,19 @@
   when:
     - skip_local_server is not defined
     - limited_internet is not defined
+- name: setup go config dir
+  file:
+    state: directory
+    path: "{{ desktop_user_vars.dir }}/.config/go"
+- name: configure go
+  template:
+    src: goenv
+    dest: "{{ desktop_user_vars.dir }}/.config/go/env"
 - name: install go modules
   command: >
     go install {{ item }}
   environment:
     GOPATH: "{{ desktop_user_vars.dir }}/Source/go"
-  with_items:
-  - github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@latest
-  - golang.org/x/tools/cmd/goimports@latest
-  - github.com/bazelbuild/buildtools/buildifier@latest
-  - github.com/prometheus/alertmanager/cmd/amtool@latest
-  - github.com/bazelbuild/bazelisk@latest
-  - github.com/homeport/dyff/cmd/dyff@latest
-  - github.com/mikefarah/yq/v4@latest
+  with_items: "{{ go_default_binaries + go_binaries }}"
 - include_tasks: amtool_config.yml
   when: amtool_config is defined
